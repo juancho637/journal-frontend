@@ -14,9 +14,12 @@ import { useForm } from "../../common/hooks";
 import { startCreatingUserWithEmailPassword } from "../../../store/auth";
 
 const initForm = {
-  name: "Juan David Garcia",
-  email: "juancho637@outlook.com",
-  password: "123456",
+  name: "",
+  email: "",
+  password: "",
+  // name: "Juan David Garcia",
+  // email: "juancho637@outlook.com",
+  // password: "123456",
 };
 
 const formValidations = {
@@ -66,6 +69,7 @@ export const RegisterPage = () => {
               placeholder="Nombre completo"
               fullWidth
               name="name"
+              autoComplete="name"
               value={name}
               onChange={onInputChange}
               error={!!nameValid && formSubmitted}
@@ -79,6 +83,7 @@ export const RegisterPage = () => {
               type="email"
               placeholder="correo@google.com"
               fullWidth
+              autoComplete="email"
               name="email"
               value={email}
               onChange={onInputChange}
@@ -94,6 +99,7 @@ export const RegisterPage = () => {
               placeholder="Contraseña"
               fullWidth
               name="password"
+              autoComplete="current-password"
               value={password}
               onChange={onInputChange}
               error={!!passwordValid && formSubmitted}

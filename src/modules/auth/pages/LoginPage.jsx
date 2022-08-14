@@ -17,11 +17,15 @@ import {
 } from "../../../store/auth";
 import { useMemo } from "react";
 
+const formData = {
+  email: "",
+  password: "",
+  // email: "juancho637@outlook.com",
+  // password: "123456",
+};
+
 export const LoginPage = () => {
-  const { email, password, onInputChange } = useForm({
-    email: "juancho637@outlook.com",
-    password: "123456",
-  });
+  const { email, password, onInputChange } = useForm(formData);
 
   const { status, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -48,6 +52,7 @@ export const LoginPage = () => {
               type="email"
               placeholder="correo@google.com"
               fullWidth
+              autoComplete="email"
               name="email"
               value={email}
               onChange={onInputChange}
@@ -60,6 +65,7 @@ export const LoginPage = () => {
               type="password"
               placeholder="Contraseña"
               fullWidth
+              autoComplete="current-password"
               name="password"
               value={password}
               onChange={onInputChange}
